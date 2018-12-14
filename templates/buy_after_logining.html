@@ -1,0 +1,20 @@
+<!--design by 周晨-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>跳转中</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container" align="center">
+    <p>{{ result }}</p>
+    <a class="btn btn-default btn-sm" href="{% url 'order_search' %}">订单查询</a>
+    <a class="btn btn-default btn-sm" onclick="javascript:history.back();">返回车票查询页</a>
+    <a class="btn btn-default btn-sm" href="{% url 'user_home' %}">回到主页</a>
+</div>
+</body>
+</html>

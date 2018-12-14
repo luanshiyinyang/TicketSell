@@ -1,0 +1,79 @@
+<!--design by 周晨-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>购票系统</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        *{
+            padding: 0px;
+            margin: 0px;
+        }
+        table{
+            margin: 0 auto;
+            width: 70%;
+            margin-bottom: 100px;
+        }
+        table th{
+            border:1px solid #cccccc;
+            text-align: center;
+        }
+        table td{
+            border:1px solid #cccccc;
+            text-align: center;
+        }
+        table tr{
+            color: #000;
+        }
+    </style>
+</head>
+<body >
+<div class="container">
+    <div>
+        <h2 style="text-align: center">可购买车票</h2>
+    </div>
+    <div>
+        <table cellspacing="0">
+            <thead>
+            <tr>
+                <th>车票编号</th>
+                <th>车票名称</th>
+                <th>发车时间</th>
+                <th>座位余量</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for ticket in tickets %}
+                <tr>
+                    <td>{{ ticket.num }}</td>
+                    <td>{{ ticket.name }}</td>
+                    <td>{{ ticket.date_start }}</td>
+                    <td>{{ ticket.seats }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <form action="{% url 'ticket_buy' %}" method="get" >
+        <div class="form-group" align="center">
+            <select class="form-control" style="width: 30%" name="number">
+                {% for ticket in tickets %}
+                    <option value="{{ ticket.num }}">{{ ticket.num }}</option>
+                {% endfor %}
+            </select>
+        </div>
+            <div align="center">
+                <button class="btn btn-default btn-sm">购买</button>
+                <a class="btn btn-default btn-sm" href="{%  url 'user_home' %}">返回</a>
+            </div>
+        </form>
+
+    </div>
+</div>
+</body>
+</html>

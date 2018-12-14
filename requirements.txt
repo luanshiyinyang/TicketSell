@@ -1,0 +1,13 @@
+django==2.0
+
+djangorestframework
+
+pymsql
+
+requests
+
+
+
+
+
+

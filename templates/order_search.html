@@ -1,0 +1,64 @@
+<!--design by 周晨-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>订单查询</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <h3 style="text-align: center">用户订单查询</h3>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>用户状态</th>
+            <th>用户名</th>
+            <th>车次</th>
+            <th>车票名称</th>
+            <th>座位号</th>
+            <th>发车时间</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>{{ result }}</td>
+            <td>{{ userinfo.phone }}</td>
+            <td>{{ userinfo.ticket_num }} </td>
+            <td>{{ userinfo.ticket_name }}</td>
+            <td>{{ userinfo.ticket_seat_num }}</td>
+            <td>{{ userinfo.ticket_time }}</td>
+        </tr>
+        </tbody>
+    </table>
+    <div align="center">
+        <a class="btn btn-default btn-sm" href="{% url 'user_home' %}">返回首页</a>
+        <a data-toggle="modal" data-target="#cancel_after" class="btn btn-default btn-sm"  >退订车票</a>
+    </div>
+
+</div>
+<div id="cancel_after" class="modal fade">
+    <div class="modal-dialog" >
+        <div class="modal-content" >
+            <div class="modal-body">
+                <button class="close" data-dismiss="modal">
+                    <span>&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" >
+                <div class="text-right" >
+                    <div align="center">
+                        <a class="btn btn-danger" href="{% url 'order_cancel' %}" >确认退票</a>
+                        <a class="btn btn-primary" data-dismiss="modal">取消操作</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
